@@ -1,3 +1,6 @@
+- Trabalhando com o padrão Strategy para Multi DataSources
+
+## ---- POSTGRES
 docker run \
     --name postgres \
     -e POSTGRES_USER=filipesoares \

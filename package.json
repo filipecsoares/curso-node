@@ -1,19 +1,19 @@
 {
-  "name": "curso-node",
+  "name": "modulo05-multidatabase",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha -w *.test.js"
   },
-  "author": "filipesoares",
+  "author": "erickwendel",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "pg": "^7.10.0",
+    "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^5.8.5"
+    "sequelize": "^4.38.0"
   }
 }

@@ -8,10 +8,10 @@ class PostgreSQLStrategy extends IDb {
     super();
     this._herois = null;
     this._sequelize = null;
-    this._connect();
+    
   }
 
-  defineModel() {
+ async defineModel() {
     this._herois = this._sequelize.define(
       'herois',
       {
@@ -35,13 +35,15 @@ class PostgreSQLStrategy extends IDb {
         tableName: 'TB_HEROIS',
         freezeTableName: false,
         timestamps: false,
+        
       },
     );
+    await this._herois.sync()
   }
 
-  _connect() {
+ async connect() {
     this._sequelize = new Sequelize(
-      'herois', //database
+      'heroes', //database
       'erickwendel', // user
       'minhasenhasecreta', //senha
       {
@@ -50,14 +52,15 @@ class PostgreSQLStrategy extends IDb {
         // case sensitive
         quoteIdentifiers: false,
         // deprecation warning
-        operatorsAliases: false
-    
+        operatorsAliases: false,
+        //disable logging
+        logging: false
         // dialectOptions: {
         //   ssl: true,
         },
     );
 
-    this.defineModel();
+    await this.defineModel();
   }
 
   async isConnected() {

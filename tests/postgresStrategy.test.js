@@ -1,6 +1,6 @@
 const { equal, deepEqual, ok } = require('assert');
-const PostgresStrategy = require('./src/db/strategies/postgresSQLStrategy');
-const Context = require('./src/db/strategies/base/contextStrategy');
+const PostgresStrategy = require('../src/db/strategies/postgresSQLStrategy');
+const Context = require('../src/db/strategies/base/contextStrategy');
 const MOCK_HEROI_CADASTRAR = { nome: 'Gaviao Negro', poder: 'flexas' };
 const MOCK_HEROI_ATUALIZAR = { nome: 'Mulher Gavião', poder: 'grito' };
 
@@ -8,6 +8,7 @@ const context = new Context(new PostgresStrategy());
 describe('PostgreSQL Strategy', function() {
   this.timeout(Infinity);
   before(async () => {
+    await context.connect()
     await context.delete();
     await context.create(MOCK_HEROI_CADASTRAR);
     await context.create(MOCK_HEROI_ATUALIZAR);

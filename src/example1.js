@@ -60,4 +60,4 @@ contextMongo.create();
 const context = new ContextoStrategy(new PostgreSQLStrategy());
 context.create();
 
-// context.read();
+context.read();

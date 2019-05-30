@@ -63,7 +63,6 @@ describe('API Heroes test suite', function ()  {
         })
         assert.deepEqual(result.statusCode, 200) 
         assert.deepEqual(JSON.parse(result.payload).nModified, 1)
-
     })
     it('remover /herois/{id}', async () => {
         const result =  await app.inject({
@@ -74,4 +73,3 @@ describe('API Heroes test suite', function ()  {
         assert.deepEqual(JSON.parse(result.payload).n, 1)
     })
 })
-

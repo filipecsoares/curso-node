@@ -28,7 +28,7 @@ class MongoDB extends ICrud {
     }
      // 1o 
     static connect() {
-        Mongoose.connect('mongodb://filipesoares:senhasecreta@localhost:27017/herois', {
+        Mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true
         }, function (error) {
             if (!error) return;

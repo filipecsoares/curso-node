@@ -1,4 +1,5 @@
-use herois-db
+use herois
+
 
 // create
 db.herois.create({ nome: 'Iron man', poder: 'Rico'})
